@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction} from 'express'
 
 export function MyMiddleware(request: Request, response: Response, next: NextFunction){
-    console.log('passou pelo middlware')
+    console.log('passou pelo middlware global')
 
     return next()
 }

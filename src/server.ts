@@ -1,5 +1,6 @@
 import express from 'express'
 import { MyMiddleware } from './middlewares/my-middleware'
+import { myMiddleware2 } from './middlewares/my-middleware2'
 
 
 const PORT = 3334
@@ -11,9 +12,9 @@ app.use(MyMiddleware)
 
 
 // parametros não nomeados
-app.get('/produtos/:id', (request, response) => {
+app.get('/produtos/:id',myMiddleware2 ,(request, response) => {
     const {id} = request.params
-    response.send(`produto id: ${id}`)
+    response.status(200).json({id})
 })
 
 // parametros nomeados
