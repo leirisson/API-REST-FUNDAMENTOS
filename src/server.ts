@@ -8,7 +8,8 @@ const PORT = 3334
 const app = express()
 app.use(express.json())
 
-app.use(MyMiddleware)
+// midle global 
+// app.use(MyMiddleware)
 
 
 // parametros não nomeados
@@ -27,10 +28,11 @@ app.get('/produtos', (request, response) => {
 
 
 
-app.post('/produtos', (request, resposne) => {
-    const {name, price} = request.body
+app.post('/produtos', myMiddleware2, (request, resposne) => {
+    const {name, price, } = request.body
+   
 
-     resposne.status(201).json({name, price})
+     resposne.status(201).json({name, price, user_id: request.user_id })
 })
 
 app.listen(PORT, () => {

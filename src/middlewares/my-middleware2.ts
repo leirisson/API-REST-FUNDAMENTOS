@@ -6,5 +6,8 @@ export function myMiddleware2(
     response: Response, 
     next: NextFunction
 ){
-    return console.log('Passando pelo middleware local')
+    request.user_id = '123456'
+    console.log('Passando pelo middleware local')
+
+    return next()
 }
