@@ -4,8 +4,9 @@ const PORT = 3334
 
 const app = express()
 
-app.get('/', (request, response) => {
-    response.send('hello express')
+app.get('/produtos/:id', (request, response) => {
+    const {id} = request.params
+    response.send(`produto id: ${id}`)
 })
 
 app.listen(PORT, () => {
