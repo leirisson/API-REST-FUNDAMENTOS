@@ -1,0 +1,21 @@
+{
+  "name": "2-criando-api-com-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch ./src/server.ts"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.14.12",
+    "express": "^4.19.2",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.4"
+  }
+}
