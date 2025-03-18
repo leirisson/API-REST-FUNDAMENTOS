@@ -1,10 +1,16 @@
 import express from 'express'
+import { routes } from './routes'
+
+
 
 const port = 3334
-const appp = express()
+const app = express()
 
-appp.post('/prosutos', (request, response) => {
+app.use(express.json())
 
-})
 
-appp.listen(port, )
+// adcionando as rotas 
+app.use(routes)
+
+
+app.listen(port, () => console.log('Server is ruing 1 2 3 ... 🐱‍🏍 ✔'))
