@@ -43,7 +43,7 @@ async function saveFuncionario(e){
     
     const nomeFuncionario = itemNameInput.value.trim()
 
-    console.log(nomeFuncionario)
+   
 
     if(nomeFuncionario){
         if(editingItemId){

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import { initDB, openDB } from "../src/database/database";
+import { openDB } from "../database/database";
 import {  z } from 'zod'
+import { randomUUID } from "crypto";
 
 export class ProjetosController {
 
@@ -23,9 +24,11 @@ export class ProjetosController {
             nome: z.string(),
             descricao: z.string().min(10),
             data_inicio: z.string(),
-            data_conclusao: z.string(),
-            status: z.boolean()
+            data_conclusao: z.string().optional(),
+            status: z.enum(['Concluído', 'Em andamento', 'Cancelado']).default('Em andamento')
         })
+
+        const id = randomUUID()
 
         const {
             nome,
@@ -40,8 +43,8 @@ export class ProjetosController {
         
             await db.run(
                 `
-                INSERT INTO projetos (nome, descricao, data_inicio, data_conclusao, status) VALUES (?, ?, ?, ?, ?)
-                `, [nome, descricao, data_inicio, data_conclusao, status ? 1: 0]
+                INSERT INTO projetos (id, nome, descricao, data_inicio, data_conclusao, status) VALUES (?, ?, ?, ?, ?, ?)
+                `, [id, nome, descricao, data_inicio, data_conclusao, status]
             )
 
             // Fechar conexão com o banco
@@ -63,11 +66,12 @@ export class ProjetosController {
             nome: z.string(),
             descricao: z.string().min(10),
             data_inicio: z.string(),
-            data_conclusao: z.string(),
-            status: z.boolean()
+            data_conclusao: z.string().optional(),
+            status: z.enum(['Concluído', 'Em andamento', 'Cancelado']).default('Em andamento')
         })
 
         const {id} = createSchemaID.parse(request.params)
+
         const {  nome,
             descricao,
             data_inicio,
@@ -103,6 +107,8 @@ export class ProjetosController {
         })
 
         const {id} = createSchemaID.parse(request.params)
+
+        console.log(id)
 
         const resultao = await db.run(`DELETE FROM projetos WHERE id = ?`, [id])
 

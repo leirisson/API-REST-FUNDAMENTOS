@@ -1,0 +1,153 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+header {
+  background-color: rgb(42, 42, 189);
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+main {
+  display: grid;
+  grid-template-areas: "formulario ul";
+  margin: 2rem auto;
+  gap: 1rem;
+  height: 80vh;
+}
+
+#formProjeto {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(253, 253, 253);
+  width: 80%;
+  margin: 0 auto;
+
+  padding: 0.5rem;
+}
+
+label {
+  color: #030303;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: .3rem;
+}
+
+input, 
+textarea,
+select{
+    padding: .6rem;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .6);
+}
+
+.opcional{
+    color: red;
+}
+
+#lista-projetos {
+  background-color: rgb(214, 127, 127);
+}
+
+.btn-form{
+    width: 20%;
+    padding: .6rem;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+
+    font-weight: 800;
+    background-color: rgb(42, 42, 189);
+    color: #fff;
+
+    transition: .3s;
+}
+
+button:hover{
+    background-color: rgb(34, 34, 182);
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    overflow-y: scroll;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+}
+
+li {
+    background: #e0e0e0;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+}
+
+.task-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.task-description {
+    font-size: 14px;
+    color: #555;
+    margin-top: 4px;
+}
+
+.task-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+button {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit {
+    background: #007bff;
+    color: white;
+}
+
+.edit:hover {
+    background: #0056b3;
+}
+
+.delete {
+    background: #dc3545;
+    color: white;
+}
+
+.delete:hover {
+    background: #a71d2a;
+}

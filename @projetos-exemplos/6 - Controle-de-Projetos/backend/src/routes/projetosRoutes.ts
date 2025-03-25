@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { ProjetosController } from "../../controllers/ProjetosController"
+import { ProjetosController } from "../controllers/ProjetosController"
 
 
 

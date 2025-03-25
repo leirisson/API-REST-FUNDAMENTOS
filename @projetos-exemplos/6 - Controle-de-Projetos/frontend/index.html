@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Formulario de Proejtos</title>
+  </head>
+  <body>
+    <header><h1>Controle de Projetos</h1></header>
+    <main>
+        <form id="formProjeto">
+
+            <label for="nome">Nome do projeto</label>
+            <input type="text" id="nome" placeholder="nome do projeto" required />
+            <label for="descricao">
+              Descrição do projeto
+            </label>
+            <textarea
+            name="descricao"
+            placeholder="Descrição do projeto"
+            required
+            id="descricao"
+            cols="30"
+            rows="10"
+          ></textarea>
+
+            <label>Data de inicio do projeto</label>
+            <input type="date" required name="data_inicio" id="data_inicio" />
+            
+            <label for="data_conclusao"> Data para conclusão do projeto  <sapn class="opcional">* opcional</sapn></label>
+            <input type="date" name="data_conclusao" id="data_conclusao" />
+
+            <select name="status" id="status">
+              <option value="Em andamento">Em andamento</option>
+              <option value="Concluído">Concluído</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+
+            <button class="btn-form" type="submit">Salvar Projeto</button>
+          </form>
+
+          <div class="container">
+            <h2>Lista de Tarefas</h2>
+            <ul id="list-projetos">
+                <li id="item-projeto">
+                    <div class="task-title">Criar a API do sistema</div>
+                    <div class="task-description">Desenvolver a API REST para o backend do sistema.</div>
+                    <div class="task-footer">
+                        <span>Status: Em andamento</span>
+                        <div class="buttons">
+                            <button class="edit">Editar</button>
+                            <button class="delete">Excluir</button>
+                        </div>
+                    </div>
+                </li>
+               
+            </ul>
+        </div>
+    </main>
+    <script type="module" src="./scripts/main.js"></script>
+  </body>
+</html>
