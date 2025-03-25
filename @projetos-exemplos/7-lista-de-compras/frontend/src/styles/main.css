@@ -1,0 +1,158 @@
+:root {
+
+    /*background*/
+    --background-primary: #F4F5FB;
+    --background-secondary: #FFFFFF;
+
+    /*color*/
+    --color-brand-hover: #C93847;
+    --color-hover: #A52C6B;
+    --color-danger: #C93847;
+    --color-brand: #CA3884;
+
+    /*content*/
+    --content-primary: #080B12;
+    --content-secondary: #374151;
+    --content-tertiary: #9CA3AF;
+    --always-white: #FFFFFF;
+
+    /*Border*/
+    --border-primary: #D1D5DB;
+    --border-hover: #B9C2D0;
+
+
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: var(--background-primary);
+}
+
+
+
+header {
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+header div {
+    display: flex;
+    font-size: .9rem;
+    gap: .5rem;
+    color: var(--color-brand);
+    font-weight: 400;
+}
+
+header .titulo {
+    color: var(--content-primary);
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+form {
+    margin-bottom: 1.5rem;
+}
+
+
+#inputComptra {
+    box-sizing: border-box;
+    border: 2px solid var(--border-primary);
+    margin-bottom: 1rem;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+#inputComptra:hover {
+    border-color: var(--border-hover);
+}
+
+
+#inputComptra:focus {
+    border: 2px solid var(--color-brand);
+}
+
+button,
+#inputComptra {
+    width: 100%;
+    padding: .5rem;
+    border-radius: 12px;
+    outline: none;
+}
+
+button {
+    background-color: var(--color-brand);
+    color: var(--always-white);
+    transition: .3s;
+    border: none;
+}
+
+button:hover {
+    background-color: var(--color-hover);
+}
+
+button:focus {
+    border: 2px solid var(--content-secondary);
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: .75rem;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    background-color: var(--always-white);
+    border-radius: 12px;
+    padding: .4rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.checkbox {
+    background-image: url('../assets/chekbox-padrao.svg');
+    border: none;
+    font-weight: 100;
+    outline: none;
+    
+}
+
+
+
+.alert{
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+
+}
+.alert > span {
+    background-color: var(--color-danger);
+    border-radius: 12px;
+    padding: .4rem;
+    width: 100%;
+    color: var(--always-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
