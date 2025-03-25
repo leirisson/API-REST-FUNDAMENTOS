@@ -2,7 +2,7 @@ import express from 'express'
 import { initDB } from './database/database'
 import { routes } from './routes'
 
-const port = 3335
+const port = 3333
 
 const app = express()
 
