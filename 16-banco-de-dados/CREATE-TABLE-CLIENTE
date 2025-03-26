@@ -1,0 +1,26 @@
+CREATE TABLE clientes (
+	id INTEGER NOT NULL  PRIMARY KEY AUTOINCREMENT,
+  nome TEXT NOT NULL CHECK(LENGTH(nome) <= 100),
+  email TEXT NOT NULL UNIQUE CHECK(LENGTH(email) <= 100),
+  data_cadastro TEXT NOT NULL CHECK(data_cadastro IS DATE(data_cadastro))
+)
+
+
+
+SELECT * FROM clientes
+
+INSERT INTO clientes (nome, email, data_cadastro) 
+VALUES (
+    'João Silva', 
+    'joao.silva@example.com', 
+    '2023-11-15'  -- Formato YYYY-MM-DD
+);
+
+
+-- Exemplo 2: Cliente com data como timestamp (INTEGER)
+INSERT INTO clientes (nome, email, data_cadastro) 
+VALUES (
+    'Maria Oliveira', 
+    'maria.oliveira@example.com', 
+   '2023-11-15'  
+);
