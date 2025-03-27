@@ -6,9 +6,10 @@ CREATE TABLE clientes (
 )
 
 
-
+-- exibindo todos os clientes
 SELECT * FROM clientes
 
+-- inserindo dados do cliente
 INSERT INTO clientes (nome, email, data_cadastro) 
 VALUES (
     'João Silva', 
@@ -24,3 +25,12 @@ VALUES (
     'maria.oliveira@example.com', 
    '2023-11-15'  
 );
+
+-- Adicionando a coluna de telefone
+ALTER TABLE clientes ADD telefone TEXT NOT NULL
+ALTER TABLE clientes ADD teste TEXT NOT NULL 
+
+
+-- removendo uma coluna da tabela
+ALTER TABLE clientes DROP COLUMN teste
+

@@ -1,0 +1,2 @@
+-- removendo uma coluna da tabela
+ALTER TABLE NOME_DA_TABELA DROP COLUMN nome_da_coluna
