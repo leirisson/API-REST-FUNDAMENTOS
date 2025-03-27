@@ -1,0 +1,7 @@
+-- informando todos os registros da tabela
+SELECT * FROM produtos
+
+-- filtrando usando WHERE
+SELECT * FROM produtos WHERE preco <= 20
+
+SELECT * FROM produtos WHERE preco > 20
