@@ -1,0 +1,13 @@
+-- informando todos os registros da tabela
+SELECT * FROM produtos
+
+
+-- % no final ele procura com todos os registros que terminam em g
+SELECT * FROM produtos WHERE descricao LIKE '%g'
+
+-- % no final ele procura com todos os registros que começa com MA
+SELECT * FROM produtos WHERE descricao LIKE 'Ma%'
+
+
+-- % no procura todas as palavras que contenham o Bovi, em qualquer parte de da palavra
+SELECT * FROM produtos WHERE descricao LIKE '%Bovi%'
