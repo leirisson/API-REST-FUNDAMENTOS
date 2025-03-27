@@ -1,0 +1,24 @@
+-- criando tabela no banco de dodos
+
+CREATE TABLE products (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    price REAL NOT NULL,
+    category TEXT NOT NULL 'general'
+)
+
+-- inserindo dados no banco de dados
+INSERT INTO products (nome, price) VALUES ('Mouse',50.65)
+INSERT INTO products (nome, price) VALUES ('Teclado',200.65)
+INSERT INTO products (nome, price) VALUES ('Caixa  de som', 350.65)
+INSERT INTO products (nome, price) VALUES ('Monitor LG ultra', 650.45)
+
+-- exibindo dados da tabela
+SELECT * FROM products
+
+-- editando dados do ta tabela
+UPDATE products SET price = 50, category = 'general' WHERE id = 1
+UPDATE products SET price = 250, category = 'perifericos' WHERE id = 5
+UPDATE products SET nome = 'teclado novo' WHERE id = 3
+
+-- adcionando uma coluna nova
