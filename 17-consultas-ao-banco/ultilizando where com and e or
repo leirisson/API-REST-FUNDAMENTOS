@@ -1,0 +1,15 @@
+
+
+
+SELECT * FROM  produtos WHERE preco > 22
+
+
+SELECT * FROM produtos WHERE preco >= 35
+
+
+-- usando o AND
+SELECT * FROM produtos WHERE preco > 20 AND preco < 30 
+
+
+-- usando select com OR
+SELECT * FROM produtos WHERE preco < 10 OR preco > 20

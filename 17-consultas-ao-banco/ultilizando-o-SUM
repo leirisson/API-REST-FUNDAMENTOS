@@ -1,0 +1,9 @@
+
+SELECT * FROM produtos
+
+
+-- usando o SUM -> para somar o valores de um coluna
+
+SELECT SUM(preco) FROM produtos 
+
+

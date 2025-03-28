@@ -1,0 +1,11 @@
+
+SELECT * FROM produtos
+
+
+-- MEDIA DE PREÇO DOS PRODUTOS
+SELECT AVG(preco) FROM produtos
+
+
+
+
+

@@ -1,0 +1,3 @@
+-- vamos ultilizar o between - para fazer filtro em intervalo de valores
+-- seleciona os produtos que estão entre 30 e 50
+SELECT * FROM produtos WHERE preco BETWEEN 30 AND 50
