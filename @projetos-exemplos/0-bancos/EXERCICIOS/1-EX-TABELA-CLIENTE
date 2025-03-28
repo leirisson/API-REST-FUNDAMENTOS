@@ -1,0 +1,85 @@
+-- Tarefas:
+-- Escreva o comando SQL para criar a tabela clientes - FEITO
+-- Escreva comandos SQL para:
+-- a) Inserir 3 clientes diferentes - FEITO
+-- b) Atualizar o telefone de um cliente específico - FEITO
+-- c) Marcar um cliente como inativo - FEITO
+-- d) Excluir permanentemente um cliente - FEITO
+-- ####################################################
+-- Escreva consultas SQL para:
+-- a) Selecionar todos os clientes ativos - FEITO
+-- b) Selecionar um cliente por seu ID - FEITO
+-- c) Buscar clientes cujo nome começa com "A" - FEITO
+-- d) Contar quantos clientes estão cadastrados
+
+CREATE TABLE clientes (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,
+nome TEXT NOT NULL,
+email TEXT NOT NULL UNIQUE,
+telefone TEXT NULL,
+data_nascimento TEXT NULL,
+data_cadastro TEXT,
+ativo BOOLEAN
+)
+
+-- CREATE: Inserir um novo cliente
+INSERT INTO clientes ( nome, email, telefone, data_nascimento, data_cadastro, ativo) VALUES
+( 'João Silva', 'joao.silva@email.com', '(11) 9999-8888', '1985-03-15', '2023-01-10', 1),
+( 'Maria Oliveira', 'maria.oliveira@email.com', '(21) 98765-4321', '1990-07-22', '2023-01-15', 1),
+( 'Carlos Souza', 'carlos.souza@email.com', NULL, '1978-11-30', '2023-02-05', 1),
+( 'Ana Costa', 'ana.costa@email.com', '(31) 99876-5432', '1995-05-18', '2023-02-10', 0),
+( 'Pedro Santos', 'pedro.santos@email.com', '(41) 98765-1234', '1982-09-25', '2023-02-20', 1),
+( 'Juliana Pereira', 'juliana.pereira@email.com', '(51) 99988-7766', '1993-12-05', '2023-03-01', 1),
+( 'Lucas Fernandes', 'lucas.fernandes@email.com', NULL, '2000-02-28', '2023-03-10', 1),
+( 'Fernanda Lima', 'fernanda.lima@email.com', '(61) 98765-0000', '1988-06-12', '2023-03-15', 0),
+( 'Ricardo Alves', 'ricardo.alves@email.com', '(71) 99876-1111', '1975-04-20', '2023-04-01', 1),
+( 'Patrícia Nunes', 'patricia.nunes@email.com', '(81) 98765-2222', '1991-08-15', '2023-04-05', 1),
+( 'Marcos Rocha', 'marcos.rocha@email.com', NULL, '1983-10-10', '2023-04-20', 0),
+( 'Amanda Castro', 'amanda.castro@email.com', '(12) 99876-3333', '1997-01-30', '2023-05-01', 1),
+( 'Gustavo Henrique', 'gustavo.henrique@email.com', '(22) 98765-4444', '1980-07-08', '2023-05-10', 1),
+( 'Beatriz Dias', 'beatriz.dias@email.com', '(32) 99876-5555', '1994-03-25', '2023-05-15', 1),
+( 'Roberto Andrade', 'roberto.andrade@email.com', NULL, '1970-12-18', '2023-06-01', 0),
+( 'Tatiane Gomes', 'tatiane.gomes@email.com', '(42) 98765-6666', '1987-09-03', '2023-06-10', 1),
+( 'Felipe Martins', 'felipe.martins@email.com', '(52) 99876-7777', '1992-11-22', '2023-06-20', 1),
+( 'Vanessa Xavier', 'vanessa.xavier@email.com', '(62) 98765-8888', '1989-04-14', '2023-07-01', 1),
+( 'Daniel Ribeiro', 'daniel.ribeiro@email.com', '(72) 99876-9999', '1979-05-09', '2023-07-10', 0),
+( 'Camila Fontes', 'camila.fontes@email.com', '(82) 98765-0000', '1996-02-27', '2023-07-15', 1)
+
+-- EXCLUINDO A TABELA
+DROP TABLE clientes
+
+-- exibir todos os clientes -> READ: Consultar clientes (todos, por ID, por nome e ativos/inativos)
+SELECT * FROM clientes
+
+-- UPDATE: Atualizar informações de um cliente existente - data de nascimento
+UPDATE clientes SET data_nascimento = '1999-02-20' WHERE id = 1
+
+-- Atualizar o telefone de um cliente específico
+UPDATE clientes SET telefone = '(91) 991789965' WHERE id = 2
+
+-- Marcar um cliente como inativo
+UPDATE clientes SET ativo = 0 WHERE id = 1
+
+-- DELETE: Excluir um cliente
+DELETE 	from clientes WHERE id = 10
+
+-- Contar total de clientes
+SELECT COUNT(*) AS 'TOTAL DE CLIENTES' FROM clientes
+
+-- Buscar clientes por parte do nome
+SELECT * FROM clientes WHERE nome LIKE '%ane%'
+SELECT * FROM clientes WHERE nome LIKE '%as%'
+
+-- Selecionar todos os clientes ativos
+SELECT * FROM clientes WHERE ativo = 1
+SELECT COUNT(*) AS [TOTAL DE CLIENTES ATIVOS] FROM clientes WHERE ativo = 1
+
+-- Selecionar um cliente por seu ID
+SELECT * FROM clientes WHERE id = 1
+SELECT * FROM clientes WHERE id IN(1)
+
+-- Buscar clientes cujo nome começa com "A"
+SELECT * FROM clientes WHERE nome LIKE 'A%'
+
+-- Contar quantos clientes estão cadastrados
+SELECT COUNT(*) AS [TOTAL DE CLIENTES CADASTRADOS] FROM clientes

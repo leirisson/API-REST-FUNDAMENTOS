@@ -1,0 +1,5 @@
+-- usando o IN -> ajuda a aplicar filtro com mutiplos valores NUMERICOS OU TEXTO
+
+SELECT * FROM produtos WHERE preco IN (32.9,41.9, 11)
+
+SELECT * FROM produtos WHERE descricao IN ('Carne Moída 1kg')

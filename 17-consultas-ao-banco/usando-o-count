@@ -1,0 +1,7 @@
+-- usando o count com filtro
+
+-- usando o count para contar quantos produtos existem com o preco maior que 40
+
+SELECT COUNT(*) FROM produtos WHERE preco > 40
+
+SELECT * FROM produtos WHERE preco > 40

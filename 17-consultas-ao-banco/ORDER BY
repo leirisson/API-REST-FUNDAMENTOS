@@ -1,0 +1,13 @@
+
+-- organizando por preco de forma crescente
+SELECT * FROM produtos ORDER BY preco
+
+-- ORGANIZANDO DE FORMA DECRESCENTE
+SELECT * FROM produtos ORDER BY preco DESC
+
+
+
+
+-- realizando filtro where e organizando em ordem decrecent
+SELECT * FROM produtos WHERE preco > 30 ORDER BY preco DESC
+

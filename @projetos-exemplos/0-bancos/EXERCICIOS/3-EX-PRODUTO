@@ -1,0 +1,68 @@
+-- Filtro com WHERE
+-- Tabela: produtos (id, nome, preco, categoria)
+-- Operação: Mostre produtos com preço entre 
+-- 50 REAIS E 100 REAIS.
+
+
+CREATE TABLE produto (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+nome TEXT NOT NULL,
+preco REAL NOT NULL,
+categoria TEXT NOT NULL
+)
+
+
+INSERT INTO produto (nome, preco, categoria) VALUES
+('Smartphone Galaxy S23', 4599.90, 'Eletrônicos'),
+('Fone Bluetooth JBL', 299.90, 'Eletrônicos'),
+('Tablet Samsung A8', 1299.00, 'Eletrônicos'),
+('Smartwatch Xiaomi', 599.90, 'Eletrônicos'),
+('Notebook Dell i5', 4299.00, 'Informática'),
+('Mouse Gamer RGB', 159.90, 'Informática'),
+('Teclado Mecânico', 349.90, 'Informática'),
+('Monitor 24" LG', 899.00, 'Informática'),
+('Sofá 3 Lugares', 1899.90, 'Móveis'),
+('Cadeira Gamer', 799.90, 'Móveis'),
+('Mesa de Escritório', 599.00, 'Móveis'),
+('Estante 5 Prateleiras', 459.90, 'Móveis'),
+('Geladeira Frost Free', 3299.00, 'Eletrodomésticos'),
+('Microondas 30L', 699.90, 'Eletrodomésticos'),
+('Lavadora de Roupas', 2199.00, 'Eletrodomésticos'),
+('Air Fryer 5L', 399.90, 'Eletrodomésticos'),
+('Camiseta Básica', 49.90, 'Vestuário'),
+('Calça Jeans Masculina', 129.90, 'Vestuário'),
+('Tênis Esportivo', 199.90, 'Vestuário'),
+('Vestido Floral', 159.90, 'Vestuário'),
+('Box Harry Potter', 249.90, 'Livros'),
+('Dom Casmurro', 29.90, 'Livros'),
+('Autoajuda: Hábitos Atômicos', 59.90, 'Livros'),
+('Cozinha Prática', 79.90, 'Livros'),
+('Bola de Futebol', 89.90, 'Esportes'),
+('Corda para Pular', 39.90, 'Esportes'),
+('Halter 5kg', 59.90, 'Esportes'),
+('Luvas de Boxe', 129.90, 'Esportes'),
+('Perfume 100ml', 199.90, 'Beleza'),
+('Kit Maquiagem', 149.90, 'Beleza'),
+('Secador de Cabelo', 129.90, 'Beleza'),
+('Creme Hidratante', 49.90, 'Beleza')
+
+
+-- EXIBINDO OS TODOS OS DADOS
+SELECT * FROM produto
+
+-- Mostre produtos com preço entre 50 REAIS E 100 REAIS.
+SELECT * FROM produto WHERE preco > 50 AND preco < 100 
+
+-- EXEBINDO OS 3 PRODUTOS MAIS CAROS
+SELECT * FROM produto ORDER BY preco DESC LIMIT 3
+
+-- AGRUPANDO POR CATEGORIA 
+SELECT categoria, COUNT(*) AS [QUANTIDADE POR CATEGORIA] 
+FROM produto GROUP BY categoria
+
+-- SOMA TOTAL DE TODOS OS PRODUTOS
+SELECT SUM(preco) AS [VALOR TOTAL EM PRODUTOS] FROM produto
+
+-- MEDIA DE VALOR DO PRODUTO POR CATEGORIA
+SELECT categoria, AVG(preco) AS [VALOR MEDIO DO PRODUTO] FROM produto 
+GROUP BY categoria
