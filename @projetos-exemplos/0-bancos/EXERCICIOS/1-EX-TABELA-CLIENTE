@@ -12,8 +12,6 @@
 -- c) Buscar clientes cujo nome começa com "A" - FEITO
 -- d) Contar quantos clientes estão cadastrados
 
-
-
 CREATE TABLE clientes (
 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,
 nome TEXT NOT NULL,
@@ -23,9 +21,6 @@ data_nascimento TEXT NULL,
 data_cadastro TEXT,
 ativo BOOLEAN
 )
-
--- EXCLUINDO A TABELA
-DROP TABLE clientes
 
 -- CREATE: Inserir um novo cliente
 INSERT INTO clientes ( nome, email, telefone, data_nascimento, data_cadastro, ativo) VALUES
@@ -50,6 +45,8 @@ INSERT INTO clientes ( nome, email, telefone, data_nascimento, data_cadastro, at
 ( 'Daniel Ribeiro', 'daniel.ribeiro@email.com', '(72) 99876-9999', '1979-05-09', '2023-07-10', 0),
 ( 'Camila Fontes', 'camila.fontes@email.com', '(82) 98765-0000', '1996-02-27', '2023-07-15', 1)
 
+-- EXCLUINDO A TABELA
+DROP TABLE clientes
 
 -- exibir todos os clientes -> READ: Consultar clientes (todos, por ID, por nome e ativos/inativos)
 SELECT * FROM clientes
