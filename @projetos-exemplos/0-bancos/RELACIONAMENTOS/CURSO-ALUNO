@@ -1,0 +1,134 @@
+CREATE TABLE students (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+name TEXT NOT NULL
+)
+
+CREATE TABLE courses(
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+name TEXT NOT NULL
+)
+
+CREATE TABLE student_address (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  student_id INTEGER UNIQUE NOT NULL,
+  street TEXT NOT NULL,
+  city TEXT NOT NULL,
+  
+  FOREIGN KEY (student_id) REFERENCES students(id)
+)
+
+
+-- DROP TABLE student_address
+
+CREATE TABLE student_address (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  student_id INTEGER UNIQUE NOT NULL,
+  street TEXT NOT NULL,
+  city TEXT NOT NULL,
+  
+  
+  FOREIGN KEY (student_id) REFERENCES students(id)
+  )
+
+
+INSERT INTO student_address
+(student_id, street, city)
+VALUES
+(1, 'Rua das Flores, 123', 'São Paulo'),
+(2, 'Avenida Brasil, 456', 'Rio de Janeiro'),
+(3, 'Rua dos Estudantes, 789', 'Belo Horizonte'),
+(4, 'Avenida Paulista, 1011', 'São Paulo'),
+(5, 'Rua da Paz, 1213', 'Porto Alegre'),
+(6, 'Avenida Beira-Mar, 1415', 'Florianópolis'),
+(7, 'Rua das Palmeiras, 1617', 'Curitiba'),
+(8, 'Avenida Central, 1819', 'Salvador'),
+(9, 'Rua do Sol, 2021', 'Recife'),
+(10, 'Avenida das Estrelas, 2223', 'Brasília');
+
+-- inner JOIN -> juntando 2 tabelas
+
+SELECT estudante_endereco.id, estudante_endereco.student_id, estudante.name, estudante_endereco.street, estudante_endereco.city
+FROM student_address AS estudante_endereco
+INNER JOIN students AS estudante ON estudante.id = estudante_endereco.student_id
+
+-- um curso pode ter 1 curso ou MUITOS  modulos
+
+SELECT * FROM courses
+
+CREATE TABLE course_modules (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+nome TEXT NOT NULL,
+course_id INTEGER NOT NULL,
+  
+FOREIGN KEY (course_id) REFERENCES courses(id)
+)
+
+
+--- relacionando as tabelas
+SELECT modules.id AS [ID MODULOS],
+modules.nome AS [NOME DO MODULO], 
+modules.course_id AS [ID CURSO], 
+cursos.name AS [NOME DO CURSO]
+
+FROM course_modules AS modules
+
+INNER JOIN courses AS cursos
+
+
+
+INSERT INTO course_modules (nome, course_id) VALUES
+('Introdução à Programação', 2),          -- Análise e Desenvolvimento de Sistemas
+('Anatomia Humana', 4),                   -- Biomedicina
+('Direito Constitucional', 6),            -- Direito
+('Cálculo Diferencial', 5),               -- Ciência da Computação
+('Farmacologia Básica', 11),              -- Farmácia
+('Psicologia do Desenvolvimento', 18),    -- Psicologia
+('Marketing Digital', 19),                -- Publicidade e Propaganda
+('Banco de Dados I', 20),                 -- Sistemas de Informação
+('Clínica Médica', 16),                   -- Medicina
+('Gestão de Projetos', 10);
+
+
+INSERT INTO students (name) VALUES
+('Leirisson Souza'),
+('Leirilson Santos'),
+('Amanda Costa'),
+('Bruno Oliveira'),
+('Carla Mendes'),
+('Daniel Almeida'),
+('Elaine Ribeiro'),
+('Fábio Lima'),
+('Gabriela Castro'),
+('Hugo Martins'),
+('Isabela Pereira'),
+('João Victor Silva'),
+('Karen Gonçalves'),
+('Lucas Fernandes'),
+('Mariana Rocha'),
+('Nathália Carvalho'),
+('Otávio Nunes'),
+('Patrícia Souza'),
+('Rafael Andrade'),
+('Tatiane Santos');
+
+INSERT INTO courses (name) VALUES
+('Administração'),
+('Análise e Desenvolvimento de Sistemas'),
+('Arquitetura e Urbanismo'),
+('Biomedicina'),
+('Ciência da Computação'),
+('Direito'),
+('Educação Física'),
+('Enfermagem'),
+('Engenharia Civil'),
+('Engenharia de Produção'),
+('Farmácia'),
+('Fisioterapia'),
+('Gastronomia'),
+('Gestão Comercial'),
+('Jornalismo'),
+('Medicina'),
+('Nutrição'),
+('Psicologia'),
+('Publicidade e Propaganda'),
+('Sistemas de Informação');
