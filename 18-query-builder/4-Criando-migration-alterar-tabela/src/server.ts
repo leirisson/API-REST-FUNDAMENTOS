@@ -3,6 +3,7 @@ import { routes } from './routes'
 import { middlewareLog } from './middlewares/middlewareLog'
 
 const app = express()
+
 const port = 3335
 
 app.use(middlewareLog)

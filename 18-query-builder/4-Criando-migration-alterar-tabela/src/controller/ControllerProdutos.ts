@@ -9,6 +9,16 @@ export class ControllerProdutos {
             response.json({produtos})
     }
 
+
+    async updateProduto(request: Request, response:Response){
+        const {nome, preco, descricao} = request.body
+        const {id} = request.params
+
+        await knex("produtos").update({nome,preco,descricao}).where({id})
+
+        response.status(409).send()
+    }
+
     async createProduto(request:Request, response:Response){
         const {nome, preco, descricao} = request.body
         
@@ -20,5 +30,13 @@ export class ControllerProdutos {
 
 
         response.status(201).send()
+    }
+
+    async deleteProduto(request: Request, response: Response){
+        const {id} = request.params
+
+        await knex("produtos").delete().where({id})
+
+        response.status(409).send()
     }
 }
