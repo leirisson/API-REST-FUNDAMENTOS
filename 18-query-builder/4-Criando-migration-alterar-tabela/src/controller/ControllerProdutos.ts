@@ -5,7 +5,8 @@ import { knex } from "../database/knex";
 export class ControllerProdutos {
 
     async getProdutos(request: Request, response:Response){
-            response.send('lista de todos os  produtos')
+            const produtos = await knex("produtos").select()
+            response.json({produtos})
     }
 
     async createProduto(request:Request, response:Response){
