@@ -3,11 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "tsx watch ./src/server.ts",
+    "knex" : "node --import tsx ./node_modules/knex/bin/cli.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@types/express": "^5.0.1",
+    "knex": "^3.1.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "express": "^5.1.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
 }
