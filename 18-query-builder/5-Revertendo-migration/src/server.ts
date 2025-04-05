@@ -1,11 +1,10 @@
 import express from 'express'
+import { routes } from './routes'
 
 const port = 3335
 
 const app = express()
-
-app.get('/clientes',  (request, response) => {
-    response.send('lista de clientes')
-})
+app.use(express.json())
+app.use(routes)
 
 app.listen(port, () => console.log('server is ruing... 🎊🛸'))
