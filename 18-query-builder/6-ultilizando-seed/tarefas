@@ -1,0 +1,6 @@
+Para Dentistas:
+Cadastrar novo dentista -> OK
+Listar todos os dentistas -> ok
+Buscar dentista por ID ou CRO -> fazendo
+Atualizar dados do dentista
+Remover dentista (verificar se não há consultas futuras agendadas)
