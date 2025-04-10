@@ -3,7 +3,7 @@ export default {
     connection  : {
         filename : "./src/database/database.db"
     },
-    useNullAsDefault : true,
+    useNullAsDefault: true,
     migrations : {
         extension : "ts",
         directory :"./src/database/migrations"
