@@ -1,4 +1,4 @@
-import { Response,Request,Router } from "express"
+import { Router } from "express"
 import { middlewareLocalDeRota } from "../middleware/middlewareLocalDeRota"
 import { ModulosController } from "../controllers/ModulosController"
 
