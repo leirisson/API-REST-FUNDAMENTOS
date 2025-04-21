@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch ./src/server.ts"
+    "dev": "tsx watch ./src/server.ts",
+    "knex":"node --import tsx node_modules/knex/bin/cli.js"
   },
   "keywords": [],
   "author": "",
