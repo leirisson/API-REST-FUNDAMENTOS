@@ -1,4 +1,4 @@
-import {z} from 'zod'
+import { z } from 'zod'
 import { NextFunction, Request, Response } from "express"
 import { knex } from '@/database/knex'
 
@@ -6,8 +6,19 @@ import { knex } from '@/database/knex'
 export class ProductsController {
     async index(request: Request, response: Response, next: NextFunction) {
         try {
-           
-            return response.json({ message: 'oi' })
+
+            const {name} = request.query
+
+            console.log(name)
+
+            const products = await knex<ProductTable>("products")
+                .select()
+                .whereLike("name", `%${name ?? ""}%`)
+                .orderBy("name")
+
+
+
+            return response.json({ products })
         } catch (error) {
             next(error)
         }
@@ -16,11 +27,11 @@ export class ProductsController {
     async createProduct(request: Request, response: Response, next: NextFunction) {
         try {
             const bodySchemaProduct = z.object({
-                name: z.string({required_error:"name is required !"}).trim().min(6),
+                name: z.string({ required_error: "name is required !" }).trim().min(6),
                 price: z.number().gt(0)
             })
 
-            const {name, price} =  bodySchemaProduct.parse(request.body)
+            const { name, price } = bodySchemaProduct.parse(request.body)
 
             await knex<ProductTable>("products").insert({
                 name,
