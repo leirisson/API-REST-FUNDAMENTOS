@@ -10,15 +10,12 @@ export class ProductsController {
 
             const { name } = request.query
 
-
             const products = await knex<ProductTable>("products")
                 .select()
                 .whereLike("name", `%${name ?? ""}%`)
                 .orderBy("name")
-
-
-
             return response.json({ products })
+
         } catch (error) {
             next(error)
         }
