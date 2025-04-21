@@ -1,6 +1,6 @@
 import {z} from 'zod'
 import { NextFunction, Request, Response } from "express"
-
+import { knex } from '@/database/knex'
 
 
 export class ProductsController {
@@ -21,8 +21,13 @@ export class ProductsController {
             })
 
             const {name, price} =  bodySchemaProduct.parse(request.body)
-            
-            return response.status(201).json({name, price})
+
+            await knex<ProductTable>("products").insert({
+                name,
+                price
+            })
+
+            return response.status(201).send()
         } catch (error) {
             next(error)
         }
