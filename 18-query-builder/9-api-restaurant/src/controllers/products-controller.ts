@@ -9,7 +9,6 @@ export class ProductsController {
 
             const {name} = request.query
 
-            console.log(name)
 
             const products = await knex<ProductTable>("products")
                 .select()
