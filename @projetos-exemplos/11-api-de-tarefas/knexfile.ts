@@ -1,10 +1,19 @@
+import { after } from "node:test";
+
 export default {
     client : "sqlite3",
     connection : {
         filename: "./src/database/database.db"
     },
+    // habilitando a restrição de chaves do relacionamento
+    pool:{
+        afterCreate: (connection: any, done:any) => {
+            connection.run("PRAGMA foreign_keys = ON")
+            done()
+        },
+    },
 
-    useNullAsDefaull: true,
+    useNullAsDefault: true,
     migrations: {
         extensions: "ts",
         directory: "./src/database/migrations"
