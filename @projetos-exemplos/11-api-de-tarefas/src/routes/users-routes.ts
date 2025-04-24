@@ -7,3 +7,4 @@ export const usersRoutes = Router()
 const userController = new UserController()
 
 usersRoutes.get('/', userController.index)
+usersRoutes.post('/', userController.create)
