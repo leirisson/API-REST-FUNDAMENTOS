@@ -1,4 +1,4 @@
-import { AppError } from "@/utils/appError"
+import { AppError } from "@/utils/AppError"
 import { NextFunction, Request, Response } from "express";
 
 export function errorHanding(error: any, request: Request, response: Response, _: NextFunction) {
