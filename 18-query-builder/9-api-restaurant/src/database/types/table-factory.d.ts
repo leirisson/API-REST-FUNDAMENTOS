@@ -1,6 +1,6 @@
 type TableFactory = {
     id : number
-    number_table : number
+    table_number : number
     created_at : number
     updated_at : number
 }
