@@ -3,7 +3,7 @@ export default {
     connection: {
         filename: "./src/database/database.db"
     },
-    // habilitando as retições de relacionamento 
+    // habilitando as restrições de relacionamento 
     pool: {
         afterCreate: (connection: any, done: any) => {
             connection.run("PRAGMA foreign_keys = ON")
