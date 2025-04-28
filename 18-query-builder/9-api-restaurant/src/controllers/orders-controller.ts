@@ -1,7 +1,7 @@
 import { knex } from '@/database/knex'
 import { AppError } from '@/utils/AppError'
 import { Request, Response, NextFunction } from 'express'
-import z from 'zod'
+import z, { number } from 'zod'
 
 export class OrderController {
 
@@ -14,8 +14,8 @@ export class OrderController {
             const order = await knex<OrderRepository>("orders")
                 .select(
                     "orders.id",
-                    "orders.table_session_id", 
-                    "orders.product_id", 
+                    "orders.table_session_id",
+                    "orders.product_id",
                     "products.name",
                     "orders.price",
                     "orders.quantity",
@@ -78,6 +78,31 @@ export class OrderController {
 
             return response.status(201).json()
 
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    // esse metodo vai mostrar o resulmmo da consta da mesa
+    async show(request: Request, response: Response, next: NextFunction) {
+        try {
+
+
+            // convertendo o id para number 
+            const table_session_id = z.string()
+            .transform((value) => Number(value))
+            .refine((value) => !isNaN(value), {message: 'ID is required'})
+            .parse(request.params.table_session_id)
+
+           
+
+            const order = await knex<OrderRepository>("orders")
+            .select(
+                knex.raw("COALESCE(SUM(orders.price * orders.quantity), 0) AS total"), // uitlilizando COALESCENCE
+                knex.raw("COALESCE(SUM(orders.quantity), 0) AS quantity")
+            )
+            .where({ table_session_id })
+            return response.json(order)
         } catch (error) {
             next(error)
         }
