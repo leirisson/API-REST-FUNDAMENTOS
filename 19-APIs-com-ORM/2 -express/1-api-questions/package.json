@@ -4,7 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"tsx watch ./src/server.ts"
+    "dev": "tsx watch ./src/server.ts"
+  },
+  "prisma": {
+    "seed" : "tsx ./prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -12,9 +15,11 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
+    "@prisma/client": "^5.19.1",
     "@types/express": "^5.0.1",
     "dotenv": "^16.5.0",
-    "express": "^5.0.1"
+    "express": "^5.0.1",
+    "prisma": "^5.19.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
