@@ -12,15 +12,19 @@ export class ControllerMedicos {
         }
     }
 
-    async create(request:Request, response:Response, next:NextFunction){
+    async create(request: Request, response: Response, next: NextFunction) {
         try {
-            const createBodySchema =z.object({
-                nome : z.string().min(3),
+            const createBodySchema = z.object({
+                nome: z.string().min(3),
                 especialidade: z.string(),
-                crm : z.string()
+                crm: z.string()
             })
 
-            const {nome, especialidade, crm } = createBodySchema.parse(request.body)
+            const {
+                nome,
+                especialidade,
+                crm
+                } = createBodySchema.parse(request.body)
 
             await prisma.medico.create({
                 data: {
@@ -35,17 +39,17 @@ export class ControllerMedicos {
         }
     }
 
-    async show(request: Request, response:Response, next:NextFunction){
+    async show(request: Request, response: Response, next: NextFunction) {
         const IdSchema = z.object({
             id: z.string()
         })
 
-        const {id} =  IdSchema.parse(request.params)
+        const { id } = IdSchema.parse(request.params)
 
         const medico = await prisma.medico.findUnique({
-            where: {id}
+            where: { id }
         })
 
-        response.json({medico})
+        response.json({ medico })
     }
 }
