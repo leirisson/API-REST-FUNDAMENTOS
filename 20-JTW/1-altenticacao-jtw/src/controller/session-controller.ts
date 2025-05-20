@@ -17,8 +17,7 @@ export class SessionsController {
             password: "123456"
         }
 
-        if (username !== fakeUser.username || password !== fakeUser.password) {
-          
+        if (username !== fakeUser.username || password !== fakeUser.password) {  
             throw new AppError("E-mail  e/ou senha incorreta", 401)
         }
 
