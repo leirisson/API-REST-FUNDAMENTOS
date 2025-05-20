@@ -9,6 +9,8 @@ export class SessionsController {
         // recuperando os dados
         const { username, password } = request.body
 
+        console.log(username, password)
+
         const fakeUser = {
             id: 1,
             username: "leirisson",
@@ -16,10 +18,9 @@ export class SessionsController {
         }
 
         if (username !== fakeUser.username || password !== fakeUser.password) {
+          
             throw new AppError("E-mail  e/ou senha incorreta", 401)
         }
-
-        
 
         response.json({ msg: 'teste' })
     }
