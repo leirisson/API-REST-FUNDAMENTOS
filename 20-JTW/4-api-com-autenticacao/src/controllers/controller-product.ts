@@ -7,6 +7,6 @@ export class ControllerProduct {
     }
 
     create(request: Request, response: Response) {
-        response.json({ msg: "criado com sucesso" })
+        response.json({ msg: request.user?.id })
     }
 }
