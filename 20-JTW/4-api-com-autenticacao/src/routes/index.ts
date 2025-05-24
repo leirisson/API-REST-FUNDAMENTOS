@@ -4,5 +4,6 @@ import { productRoutes } from './product-routes'
 
 export const routes = Router()
 
-routes.use('/products', sessionRoutes)
-routes.use('/sessions', productRoutes)
+
+routes.use('/products', productRoutes)
+routes.use('/sessions', sessionRoutes)
