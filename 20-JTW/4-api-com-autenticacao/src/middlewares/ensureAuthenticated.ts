@@ -16,10 +16,10 @@ export function ensureAuthenticated(
         response.status(401).json({ message: "token não informado" })
     }
 
-    const [, tokenValue]: string[] = authHeader?.split(' ');
+    const [, token]: string[] = authHeader?.split(' ');
 
 
-    const { sub: user_id } = verify(tokenValue, authConfig.jwt.secret)
+    const { sub: user_id } = verify(token, authConfig.jwt.secret)
 
     request.user = {
         id: String(user_id)
