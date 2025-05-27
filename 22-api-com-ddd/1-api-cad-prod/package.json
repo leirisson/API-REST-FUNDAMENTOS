@@ -1,0 +1,25 @@
+{
+  "name": "1-api-cad-prod",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "@types/express": "^5.0.2",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.23",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
