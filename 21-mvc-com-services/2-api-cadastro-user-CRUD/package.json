@@ -1,0 +1,26 @@
+{
+  "name": "2-api-cadastro-user-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch ./src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@prisma/client": "^6.8.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "prisma": "^6.8.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.2",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
