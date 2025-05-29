@@ -8,7 +8,7 @@ export class ControllerUser {
     }
 
     create(request: Request, response: Response) {
-        response.json({ messgae: 'criado com suceso o usuarios' })
+        response.json({ message: request.user?.role})
     }
 
 }

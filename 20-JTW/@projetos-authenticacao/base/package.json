@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.24",
+    "express": "^5.1.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "name": "base",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": ""
+}

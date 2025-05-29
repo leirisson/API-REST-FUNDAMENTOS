@@ -13,7 +13,7 @@ export class SessionController {
             id: "1",
             name: "Leirisson",
             password: "123456",
-            role: ["admin"]
+            role: ["admin","super"] 
         }
 
         if (name !== fakeUser.name || password !== fakeUser.password) {
@@ -22,7 +22,7 @@ export class SessionController {
 
 
         const { secret, expiresIn } = authConfig.jwt
-        const token = sign({}, secret, {
+        const token = sign({role: fakeUser.role[0]}, secret, {
             expiresIn,
             subject: String(fakeUser.id)
         })
