@@ -31,13 +31,15 @@ export class LoginController {
 
         const { secret, expiresIn } = authConfig.jwt
 
-        const token = sign({ userName: FakeUserAdmin.name, role: FakeUserAdmin.role },
+        const token = sign(
+            { userName: FakeUserAdmin.name, role: FakeUserAdmin.role },
             secret,
             {
-                expiresIn,
-                subject: FakeUserAdmin.id
-            }
+                expiresIn: expiresIn,
+                sub: String(FakeUserAdmin.id)
+            } as any  // Força o tipo temporariamente
         )
+
 
         response.json({ token })
     }
