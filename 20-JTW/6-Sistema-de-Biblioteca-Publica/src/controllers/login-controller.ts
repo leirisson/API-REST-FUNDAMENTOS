@@ -11,17 +11,9 @@ export class LoginController {
             name: "leirisson",
             email: "leirisson@example.com",
             password: "123456",
-            role: ["admin"]
+            role: "admin"
         }
 
-        const FakeUser = {
-            id: "1",
-            name: "Maria",
-            email: "maria@example.com",
-            password: "m2@123",
-            curso: "informatica",
-            role: ["user"]
-        }
 
         const { email, password } = request.body
 
@@ -32,13 +24,15 @@ export class LoginController {
         const { secret, expiresIn } = authConfig.jwt
 
         const token = sign(
-            { userName: FakeUserAdmin.name, role: FakeUserAdmin.role },
+            {
+                userName: FakeUserAdmin.name,
+                role: FakeUserAdmin.role 
+            },
             secret,
             {
                 expiresIn: expiresIn,
-                sub: String(FakeUserAdmin.id)
-            } as any  // Força o tipo temporariamente
-        )
+                subject: String(FakeUserAdmin.id)
+            } as any )
 
 
         response.json({ token })

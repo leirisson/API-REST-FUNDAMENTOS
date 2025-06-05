@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from "express"
 import { verify } from 'jsonwebtoken'
 import { authConfig } from '../config/auth'
+import { TokenPayload } from '../interfaces/TokenPayload'
+
 export function ensureAthenticated(request: Request, response: Response, next: NextFunction) {
 
     const authHeader = request.headers.authorization
@@ -13,10 +15,13 @@ export function ensureAthenticated(request: Request, response: Response, next: N
 
     // verificado se o token é valido
     const { secret } = authConfig.jwt
-    const { sub: user_id } = verify(token, secret)
+    const { sub: user_id, role, userName } = verify(token, secret) as TokenPayload
 
     request.user = {
-        id: String(user_id)
+        id: String(user_id),
+        name: userName,
+        role,
     }
+
     return next()
 }
