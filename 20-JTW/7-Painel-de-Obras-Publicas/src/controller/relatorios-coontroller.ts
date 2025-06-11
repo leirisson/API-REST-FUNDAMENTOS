@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 
 export class RelatoriosController {
-    create(request:Request, response:Response){
-        
+    getAll(request:Request, response:Response){
+        response.json({message: 'relatorios emitidos com sucesso.'})
     }
 }
